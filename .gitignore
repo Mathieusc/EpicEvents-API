@@ -1,2 +1,5 @@
 env/
 __pycache__/
+authentication/__pycache__/
+crm_api/__pycache__/
+django_project/__pycache__/
