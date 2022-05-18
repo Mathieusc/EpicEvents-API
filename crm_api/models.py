@@ -1,4 +1,3 @@
-from ntpath import realpath
 from django.db import models
 from authentication.models import User
 
