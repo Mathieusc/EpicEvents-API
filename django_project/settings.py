@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "authentication",
-    "crm_api",
+    "clients",
+    "contracts",
+    "events",
     "rest_framework",
     "rest_framework_simplejwt",
 ]
