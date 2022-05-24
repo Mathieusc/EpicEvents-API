@@ -23,9 +23,9 @@ class Event(models.Model):
     )
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
-    attendees = models.IntegerField(blank=True, null=True)
-    event_dates = models.DateTimeField(blank=True, null=True)
-    notes = models.TextField(max_length=2000, blank=True)
+    attendees = models.IntegerField()
+    event_dates = models.DateTimeField()
+    notes = models.TextField(max_length=2000)
 
     def __str__(self):
         return f"Contract: {self.contract} | Status: {self.status} | Support Staff: {self.support_contact}"

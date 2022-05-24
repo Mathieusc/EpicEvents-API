@@ -11,12 +11,12 @@ class Client(models.Model):
         limit_choices_to={"role": 3},
         related_name="sales",
     )
-    company_name = models.CharField(max_length=64, null=False)
-    first_name = models.CharField(max_length=25, blank=False)
-    last_name = models.CharField(max_length=25, blank=False)
+    company_name = models.CharField(max_length=64)
+    first_name = models.CharField(max_length=25)
+    last_name = models.CharField(max_length=25)
     email = models.CharField(max_length=100, unique=True)
-    phone = models.CharField(max_length=20, unique=True, null=False)
-    mobile = models.CharField(max_length=20, unique=True, null=False)
+    phone = models.CharField(max_length=20, unique=True)
+    mobile = models.CharField(max_length=20, unique=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 
