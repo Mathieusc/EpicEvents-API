@@ -1,15 +1,15 @@
 from rest_framework import serializers
 
 from authentication.serializers import UserSerializer
-from clients.serializers import ClientListSerializer
-from contracts.serializers import ContractListSerializer
+from clients.serializers import ClientSerializer
+from contracts.serializers import ContractSerializer
 
 from events.models import Event
 
 
 class EventSerializer(serializers.ModelSerializer):
-    client = ClientListSerializer(read_only=True)
-    contract = ContractListSerializer(read_only=True)
+    client = ClientSerializer(read_only=True)
+    contract = ContractSerializer(read_only=True)
     support_contact = UserSerializer(read_only=True)
 
     class Meta:

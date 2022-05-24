@@ -1,15 +1,18 @@
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 from clients.models import Client
-from clients.serializers import ClientListSerializer, ClientDetailSerializer
+from clients.serializers import ClientSerializer
 
 
-class ClientViewSet(ModelViewSet):
-    serializer_class = ClientListSerializer
-    detail_serializer_class = ClientDetailSerializer
+class ClientListCreateView(ListCreateAPIView):
     queryset = Client.objects.all()
+    serializer_class = ClientSerializer
 
-    def get_serializer_class(self):
-        if self.action == "retrieve":
-            return self.detail_serializer_class
-        return super().get_serializer_class()
+    def perform_create(self, serializer):
+        serializer.save(sales_contact=self.request.user)
+
+
+class ClientRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
+    queryset = Client.objects.all()
+    serializer_class = ClientSerializer
+    # Add permissions

@@ -1,9 +1,19 @@
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 from events.models import Event
 from events.serializers import EventSerializer
 
 
-class EventViewSet(ModelViewSet):
-    serializer_class = EventSerializer
+class EventListCreateView(ListCreateAPIView):
     queryset = Event.objects.all()
+    serializer_class = EventSerializer
+    # Add permissions
+
+    def perform_create(self, serializer):
+        pass
+
+
+class EventRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
+    queryset = Event.objects.all()
+    serializer_class = EventSerializer
+    # Add permissions

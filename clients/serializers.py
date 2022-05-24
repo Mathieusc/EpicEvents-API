@@ -5,13 +5,7 @@ from authentication.serializers import UserSerializer
 from clients.models import Client
 
 
-class ClientListSerializer(ModelSerializer):
-    class Meta:
-        model = Client
-        fields = ["id", "first_name", "email"]
-
-
-class ClientDetailSerializer(ModelSerializer):
+class ClientSerializer(ModelSerializer):
     sales_contact = UserSerializer(read_only=True)
 
     class Meta:

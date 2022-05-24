@@ -1,15 +1,18 @@
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 
 from contracts.models import Contract
-from contracts.serializers import ContractListSerializer, ContractDetailSerializer
+from contracts.serializers import ContractSerializer
 
 
-class ContractViewSet(ModelViewSet):
-    serializer_class = ContractListSerializer
-    detail_serializer_class = ContractDetailSerializer
+class ContractListCreateView(ListCreateAPIView):
     queryset = Contract.objects.all()
+    serializer_class = ContractSerializer
 
-    def get_serializer_class(self):
-        if self.action == "retrieve":
-            return self.detail_serializer_class
-        return super().get_serializer_class()
+    def perform_create(self, serializer):
+        pass
+
+
+class ContractRetrieveUpdateDestroyView(RetrieveUpdateDestroyAPIView):
+    queryset = Contract.objects.all()
+    serializer_class = ContractSerializer
+    # Add permissions
