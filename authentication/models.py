@@ -5,14 +5,17 @@ from authentication.managers import UserManager
 
 
 class User(AbstractUser):
+    MANAGEMENT = 1
+    SUPPORT = 2
+    SALES = 3
 
-    USER_ROLE = ((1, "managment"), (2, "support"), (3, "sales"))
+    USER_ROLE = ((MANAGEMENT, "management"), (SUPPORT, "support"), (SALES, "sales"))
 
     role = models.PositiveIntegerField(
-        choices=USER_ROLE, verbose_name="team", default=1
+        choices=USER_ROLE, verbose_name="role", blank=True, null=True
     )
 
     object = UserManager()
 
     def __str__(self):
-        return f"User: {self.username} | Role: {self.role}"
+        return f"User: {self.email} | Role: {self.role}"
