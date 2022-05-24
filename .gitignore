@@ -5,3 +5,5 @@ crm_api/__pycache__/
 django_project/__pycache__/
 oc_12_erd.drawio
 erd_screenshot.png
+*.__pycache__/
+*.pc
