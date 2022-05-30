@@ -15,7 +15,7 @@ class User(AbstractUser):
         choices=USER_ROLE, verbose_name="role", blank=True, null=True
     )
 
-    object = UserManager()
+    objects = UserManager()
 
     def __str__(self):
         return f"User: {self.email} | Role: {self.role}"

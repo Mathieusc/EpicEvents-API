@@ -14,7 +14,7 @@ from rest_framework import routers
 # event_router.register("events", EventViewSet, basename="event")
 
 urlpatterns = [
-    path("api-auth/", include("rest_framework.urls")),
+    # path("api-auth/", include("rest_framework.urls")),
     # path("", include(client_router.urls)),
     # path("", include(contract_router.urls)),
     # path("", include(event_router.urls)),
