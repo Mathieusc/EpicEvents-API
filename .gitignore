@@ -1,10 +1,5 @@
 env/
-__pycache__/
-authentication/__pycache__/
-crm_api/__pycache__/
-django_project/__pycache__/
 oc_12_erd.drawio
 erd_screenshot.png
-*.__pycache__/
-*.pc
+*.pyc
 erd_epic_events(1).drawio
