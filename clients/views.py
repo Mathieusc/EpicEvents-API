@@ -79,7 +79,7 @@ class ClientViewSet(ModelViewSet):
 
     def destroy(self, request, *args, **kwargs):
         """
-        DELETE method only for for the sales member responsible of the client.
+        DELETE method only for the sales member responsible of the client.
         If a contract is linked to the client it cannot be deleted.
         """
         user = request.user

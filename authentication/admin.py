@@ -18,7 +18,6 @@ class UserForm(forms.ModelForm):
         user.set_password(self.cleaned_data["password"])
         if self.cleaned_data.get("role") == 1:
             user.is_staff = True
-            user.is_superuser = True
         if commit:
             user.save()
         return user

@@ -19,7 +19,7 @@ class Contract(models.Model):
     date_updated = models.DateTimeField(auto_now=True)
     amount = models.FloatField(blank=True)
     payment_due = models.DateTimeField(blank=True, null=True)
-    # Add is_signed ?
+    # Replace by is_signed ?
     is_finished = models.BooleanField(default=False)
     is_paid = models.BooleanField(default=False)
 
