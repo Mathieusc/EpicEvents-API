@@ -66,15 +66,15 @@ class ClientViewSet(ModelViewSet):
         client = client_to_update.get()
 
         if user.role == 3 or user.role == 1:
-            client.company_name = data["company_name"]
+            # client.company_name = data["company_name"]
             client.first_name = data["first_name"]
-            client.last_name = data["last_name"]
+            # client.last_name = data["last_name"]
             client.email = data["email"]
-            client.phone = data["phone"]
-            client.mobile = data["mobile"]
+            # client.phone = data["phone"]
+            # client.mobile = data["mobile"]
 
             client.save()
-            serializer = ClientDetailSerializer((client))
+            serializer = ClientDetailSerializer(client)
             return Response(serializer.data)
 
     def destroy(self, request, *args, **kwargs):
