@@ -19,9 +19,8 @@ class Contract(models.Model):
     date_updated = models.DateTimeField(auto_now=True)
     amount = models.FloatField(blank=True)
     payment_due = models.DateTimeField(blank=True, null=True)
-    # Replace by is_signed ?
+    is_signed = models.BooleanField(default=False)
     is_finished = models.BooleanField(default=False)
-    is_paid = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Client: {self.client.email}"
+        return f"Contrat with: {self.client.email}"
