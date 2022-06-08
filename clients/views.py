@@ -13,11 +13,15 @@ from authentication.permissions import (
     ManagerAndSalesPermissions,
 )
 
+from django_filters.rest_framework import DjangoFilterBackend
+
 
 class ClientViewSet(ModelViewSet):
     serializer_class = ClientListSerializer
     detail_serializer_class = ClientDetailSerializer
     permission_classes = [ManagerAndSalesPermissions]
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ["first_name", "email"]
 
     def get_serializer_class(self):
         if self.action == "retrieve":

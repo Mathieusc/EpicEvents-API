@@ -8,10 +8,14 @@ from clients.models import Client
 from contracts.models import Contract
 from contracts.serializers import ContractListSerializer, ContractDetailSerializer
 
+from django_filters.rest_framework import DjangoFilterBackend
+
 
 class ContractViewSet(ModelViewSet):
     serializer_class = ContractListSerializer
     detail_serializer_class = ContractDetailSerializer
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ["client__first_name", "client__email", "date_created", "amount"]
 
     def get_serializer_class(self):
         if self.action == "retrieve":
