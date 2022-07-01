@@ -8,12 +8,20 @@ from clients.models import Client
 from contracts.models import Contract
 from contracts.serializers import ContractListSerializer, ContractDetailSerializer
 
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from authentication.permissions import (
+    SupportPermissions,
+    UserPermissions,
+    SalesPermissions,
+)
+
 from django_filters.rest_framework import DjangoFilterBackend
 
 
 class ContractViewSet(ModelViewSet):
     serializer_class = ContractListSerializer
     detail_serializer_class = ContractDetailSerializer
+    permission_classes = [IsAuthenticated, SalesPermissions]
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ["client__first_name", "client__email", "date_created", "amount"]
 
@@ -23,6 +31,5 @@ class ContractViewSet(ModelViewSet):
         return super().get_serializer_class()
 
     def get_queryset(self):
-        user = self.request.user
-        contracts = Contract.objects.all()
+        contracts = Contract.objects.all().select_related("client")
         return contracts

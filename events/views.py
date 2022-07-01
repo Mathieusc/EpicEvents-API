@@ -3,7 +3,12 @@ from rest_framework.viewsets import ModelViewSet
 from events.models import Event
 from events.serializers import EventListSerializer, EventDetailSerializer
 
-from authentication.permissions import SupportPermissions, ManagerAndSalesPermissions
+from rest_framework.permissions import IsAuthenticated
+from authentication.permissions import (
+    UserPermissions,
+    SalesPermissions,
+    SupportPermissions,
+)
 
 from django_filters.rest_framework import DjangoFilterBackend
 
@@ -11,7 +16,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 class EventViewSet(ModelViewSet):
     serializer_class = EventListSerializer
     detail_serializer_class = EventDetailSerializer
-    permission_classes = []
+    permission_classes = [IsAuthenticated, SupportPermissions]
     filter_backends = [DjangoFilterBackend]
     filterset_fileds = ["client__first_name", "client__email", "event_dates"]
 
@@ -21,6 +26,5 @@ class EventViewSet(ModelViewSet):
         return super().get_serializer_class()
 
     def get_queryset(self):
-        user = self.request.user
-        events = Event.objects.all()
+        events = Event.objects.all().select_related("client")
         return events

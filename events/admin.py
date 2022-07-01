@@ -7,6 +7,7 @@ class EventAdmin(admin.ModelAdmin):
     model = Event
 
     list_display = [
+        "id",
         "status",
         "client",
         "support_contact",

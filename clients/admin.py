@@ -7,6 +7,7 @@ class ClientAdmin(admin.ModelAdmin):
     model = Client
 
     list_display = [
+        "id",
         "sales_contact",
         "company_name",
         "first_name",

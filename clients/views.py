@@ -9,9 +9,8 @@ from clients.models import Client
 from clients.serializers import ClientListSerializer, ClientDetailSerializer
 from clients.permissions import IsSales
 
-from authentication.permissions import (
-    ManagerAndSalesPermissions,
-)
+from rest_framework.permissions import IsAuthenticated
+from authentication.permissions import UserPermissions, SalesPermissions
 
 from django_filters.rest_framework import DjangoFilterBackend
 
@@ -19,7 +18,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 class ClientViewSet(ModelViewSet):
     serializer_class = ClientListSerializer
     detail_serializer_class = ClientDetailSerializer
-    permission_classes = [ManagerAndSalesPermissions]
+    permission_classes = [IsAuthenticated, SalesPermissions]
     filter_backends = [DjangoFilterBackend]
     filterset_fields = ["first_name", "email"]
 
@@ -29,7 +28,5 @@ class ClientViewSet(ModelViewSet):
         return super().get_serializer_class()
 
     def get_queryset(self):
-        # user Needed ?
-        user = self.request.user
         clients = Client.objects.all()
         return clients

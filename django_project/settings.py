@@ -144,6 +144,74 @@ REST_FRAMEWORK = {
 }
 
 SIMPLE_JWT = {
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=5),
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=1000),
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+}
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {
+            "format": "{levelname} {asctime} {module} {process:d} {thread:d} {message}",
+            "style": "{",
+        },
+        "simple": {
+            "format": "{levelname} {message}",
+            "style": "{",
+        },
+    },
+    "handlers": {
+        "file_server": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "formatter": "verbose",
+            "filename": "./logging/django_server.log",
+        },
+        "file_security": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "formatter": "verbose",
+            "filename": "./logging/django_security.log",
+        },
+        "file_backend_db": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "formatter": "verbose",
+            "filename": "./logging/django_backend_db.log",
+        },
+        "file_request": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "formatter": "verbose",
+            "filename": "./logging/django_request.log",
+        },
+        "console": {
+            "level": "INFO",
+            "class": "logging.StreamHandler",
+            "formatter": "simple",
+        },
+    },
+    "loggers": {
+        "django.server": {
+            "handlers": ["file_server", "console"],
+            "level": "INFO",
+            "propagate": True,
+        },
+        "django.security": {
+            "handlers": ["file_security", "console"],
+            "level": "INFO",
+            "propagate": True,
+        },
+        "django.db.backends": {
+            "handlers": ["file_backend_db", "console"],
+            "level": "INFO",
+            "propagate": True,
+        },
+        "django.request": {
+            "handlers": ["file_request", "console"],
+            "level": "INFO",
+            "propagate": True,
+        },
+    },
 }
