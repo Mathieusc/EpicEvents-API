@@ -8,7 +8,7 @@ from clients.models import Client
 class ClientListSerializer(ModelSerializer):
     class Meta:
         model = Client
-        fields = ["id", "first_name", "email"]
+        fields = ["id", "first_name", "email", "sales_contact"]
 
 
 class ClientDetailSerializer(ModelSerializer):
