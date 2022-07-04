@@ -19,7 +19,7 @@ Main features :
 - Manage accounts with three different roles with permissions
 - 1 Manager: Manage accounts, assign users roles, have access and can modify all data.
 - 2 Support: Manage the events assigned to them by the sales users, can only read data and update their events.
-- 3 Sales: Manage the creaation of clients, contracts, events and assign support or sales users to them.
+- 3 Sales: Manage the creation of clients, contracts, events and assign support or sales users to them.
 
 ## Installation
 
