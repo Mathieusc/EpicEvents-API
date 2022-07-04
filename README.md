@@ -6,6 +6,9 @@ Develop a secure back-end Architecture using Django ORM
 CRM (Customer Relationship Management) application.
 Used to create clients, add contracts and if they are signed add events to them.
 
+## Entity Relationship Diagram
+![Epic Events ERD](epic_events_erd.png)
+
 ## Epic Events Documentation
 
 https://documenter.getpostman.com/view/19912950/UzJFwyWQ
