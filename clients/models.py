@@ -1,7 +1,7 @@
 from django.db import models
 from authentication.models import User
 
-# Create your models here.
+
 class Client(models.Model):
     sales_contact = models.ForeignKey(
         to=User,

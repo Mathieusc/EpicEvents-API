@@ -4,11 +4,7 @@ from events.models import Event
 from events.serializers import EventListSerializer, EventDetailSerializer
 
 from rest_framework.permissions import IsAuthenticated
-from authentication.permissions import (
-    UserPermissions,
-    SalesPermissions,
-    SupportPermissions,
-)
+from authentication.permissions import SupportPermissions
 
 from django_filters.rest_framework import DjangoFilterBackend
 

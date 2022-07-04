@@ -1,19 +1,10 @@
-from django.db.models import RestrictedError
-
-from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
-from rest_framework import status
 
-from clients.models import Client
 from contracts.models import Contract
 from contracts.serializers import ContractListSerializer, ContractDetailSerializer
 
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
-from authentication.permissions import (
-    SupportPermissions,
-    UserPermissions,
-    SalesPermissions,
-)
+from rest_framework.permissions import IsAuthenticated
+from authentication.permissions import SalesPermissions
 
 from django_filters.rest_framework import DjangoFilterBackend
 
