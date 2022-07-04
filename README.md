@@ -72,3 +72,6 @@ password: oc-admin
 Python version 3.8.10
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Postman](https://www.postman.com/)
+
+## Author
+Schweitzer Mathieu
