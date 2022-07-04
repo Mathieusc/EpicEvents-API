@@ -57,9 +57,10 @@ Create the database
 python manage.py migrate
 ```
 
-Create the admin account
+Django admin manager user example
 ```
-python manage.py createsuperuser
+username: mathieu
+password: oc-admin
 ```
 
 Run the server
