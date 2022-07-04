@@ -5,10 +5,6 @@ Develop a secure back-end Architecture using Django ORM
 
 CRM (Customer Relationship Management) application.
 Used to create clients, add contracts and if they are signed add events to them.
-Users have 3 roles with permissions:
-1 - Manager: Manage accounts, assign users roles, have access and can modify all data.
-2 - Support: Manage the events assigned to them by the sales users, can only read data and update their events.
-3 - Sales: Manage the creaation of clients, contracts, events and assign support or sales users to them.
 
 ## Epic Events Documentation
 
@@ -16,8 +12,8 @@ https://documenter.getpostman.com/view/19912950/UzJFwyWQ
 
 
 Main features :
-- User Authentication (using JWT)
-- Manage accounts by three different roles with permission
+- User Authentication (using JSON Web Token)
+- Manage accounts with three different roles with permissions
 - 1 Manager: Manage accounts, assign users roles, have access and can modify all data.
 - 2 Support: Manage the events assigned to them by the sales users, can only read data and update their events.
 - 3 Sales: Manage the creaation of clients, contracts, events and assign support or sales users to them.
