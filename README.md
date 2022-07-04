@@ -57,17 +57,16 @@ Create the database
 python manage.py migrate
 ```
 
-Django admin manager user example
-```
-username: mathieu
-password: oc-admin
-```
-
 Run the server
 ```
 python manage.py runserver
 ```
 
+Django admin manager user example
+```
+username: mathieu
+password: oc-admin
+```
 
 ## Created with
 Python version 3.8.10
