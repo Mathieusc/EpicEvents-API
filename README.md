@@ -62,10 +62,9 @@ Run the server
 python manage.py runserver
 ```
 
-Django admin manager user example
+Create a superuser
 ```
-username: mathieu
-password: oc-admin
+python manage.py createsuperuser
 ```
 
 ## Created with
