@@ -28,8 +28,7 @@ Python (version used: 3.8.10)
 
 Download the application
 ```
-git clone https://github.com/Mathieusc/openclassrooms_project_12.git
-cd openclassrooms_project_12/
+git clone https://github.com/Mathieusc/EpicEvents-API.git
 ```
 
 Create a virutal environment
